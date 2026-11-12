@@ -1,6 +1,6 @@
 {
-  "versionCode": 25,
-  "versionName": "2.9.14",
+  "versionCode": 26,
+  "versionName": "2.9.15",
   "apk": "boge-duanju.apk",
-  "notes": "修复红果栏目打不开（加载失败：Hostname hongguoduanju.com not verified）：部分运营商 DNS 把红果官网解析到证书不含域名的 IP（27.124.2.x），HTTPS 校验直接失败。本版内置 DoH 加固：改用阿里/腾讯公共 DNS 解析出真实 CDN 节点，按域名 SNI 直连并严格校验证书，遇到脏 IP 自动跳过换下一个节点（实测 0.4 秒内恢复）。红果播放签名修复（2.9.13）保持不变；其余六源不受影响。"
+  "notes": "真正修复红果栏目 DNS 污染（上一版 2.9.14 的直连实现无效，实测并未真正连到指定 IP，已重写）。本版改用 OkHttp 自定义 DNS：连干净 IP + 发域名 SNI + 按域名严格校验证书，脏 IP 自动跳过；即使公共 DoH 也被拦，仍有内置 CDN 节点 IP 兜底。标题栏常显版本号，错误页附带 v 版本与网络诊断。其余七源与红果播放真签名修复不变。"
 }
