@@ -1,7 +1,6 @@
 {
-  "versionCode": 24,
-  "versionName": "2.9.13",
+  "versionCode": 25,
+  "versionName": "2.9.14",
   "apk": "boge-duanju.apk",
-  "apkNotes": "来源：TVBox 红果修复脚本（黑大帅）的签名方案移植",
-  "notes": "红果修复：11-11 上游停用 multi_video_model/v1/ 并封禁占位签名。本版移植真签名（x-ladon 34 轮 Feistel + x-argus protobuf/Simon72/AES，逐字节黄金向量对拍）并切换新端点 video_model/v1/，真签名优先、旧签名兜底。签名已被服务端接受（返回 JSON）；若仍提示额度受限(code=101000)，请多试几次或换网络环境，我们继续跟进设备激活环节。其余六源不变。"
+  "notes": "修复红果栏目打不开（加载失败：Hostname hongguoduanju.com not verified）：部分运营商 DNS 把红果官网解析到证书不含域名的 IP（27.124.2.x），HTTPS 校验直接失败。本版内置 DoH 加固：改用阿里/腾讯公共 DNS 解析出真实 CDN 节点，按域名 SNI 直连并严格校验证书，遇到脏 IP 自动跳过换下一个节点（实测 0.4 秒内恢复）。红果播放签名修复（2.9.13）保持不变；其余六源不受影响。"
 }
