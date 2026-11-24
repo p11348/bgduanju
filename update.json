@@ -1,7 +1,7 @@
 {
-  "versionCode": 29,
-  "versionName": "3.2",
-  "apk": "boge-duanju-v3.2.apk",
-  "apkSize": 8148170,
-  "notes": "3.2：修复红果间歇性无法播放（播放信息接口 200 空响应）。11-19 起上游对 V5 player/v1 主路径按「身份×路径」窗口间歇性限流，本版在主路径空响应时自动回退同会话 video_tab 接口（GET + 同套 V5 签名），多域名 + 多注册身份轮换直到命中可放行的设备，社区 0.16.10 同款方案，已实测取到 5 档可播直链。其余六源与全部功能保持不变；签名指纹不变，可直接覆盖安装。"
+  "versionCode": 30,
+  "versionName": "3.3",
+  "apk": "boge-duanju-v3.3.apk",
+  "apkSize": 8148909,
+  "notes": "3.3：修复红果再次无法播放（上游 11-23 又升级签名）。关键差异：Medusa 签名 wire field 21 从 377 改为 312（社区 0.16.14 逐字段 A/B 定位，真机 TV 已验证），同时取流切到 74532 当前 App 协议 + preload/v1 端点 + reading.snssdk.com，改用 OkHttp 原样发送 gzip 字节。沙箱实测主路径拿到 code=0 + 5 档可播直链。保留 player/v1 与 video_tab 双兜底；其余六源不变，签名指纹不变可覆盖安装。"
 }
