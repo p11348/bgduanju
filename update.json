@@ -1,7 +1,7 @@
 {
-  "versionCode": 30,
-  "versionName": "3.3",
-  "apk": "boge-duanju-v3.3.apk",
-  "apkSize": 8148909,
-  "notes": "3.3：修复红果再次无法播放（上游 11-23 又升级签名）。关键差异：Medusa 签名 wire field 21 从 377 改为 312（社区 0.16.14 逐字段 A/B 定位，真机 TV 已验证），同时取流切到 74532 当前 App 协议 + preload/v1 端点 + reading.snssdk.com，改用 OkHttp 原样发送 gzip 字节。沙箱实测主路径拿到 code=0 + 5 档可播直链。保留 player/v1 与 video_tab 双兜底；其余六源不变，签名指纹不变可覆盖安装。"
+  "versionCode": 31,
+  "versionName": "3.4",
+  "apk": "boge-duanju-v3.4.apk",
+  "apkSize": 8150888,
+  "notes": "3.4：修复红果 11-24 起「设备画像过滤」导致的全面无法播放（根因变了，不是签名升级）。上游改为按设备可信度静默拒绝：画像不全一律 HTTP 200+0 字节。按社区 4aafa9b 完整修复：注册解析 klink_egdi + app_alert_check 激活匿名设备 + 播放 query 补官方 28 项画像 + medusa 信封 14→38 字段(deviceInfo)/4→9 字段(env)+f16 设备令牌+flags 0x4480... + 端点回退 player/v1/74332 + 空响应 3s 冷却防打满 v5。沙箱端到端实测已恢复播放(含此前故障集)，5 档可播。其余六源不变，签名指纹不变可覆盖安装。"
 }
